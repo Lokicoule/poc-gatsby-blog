@@ -14,8 +14,23 @@ const config: GatsbyConfig = {
         path: path.resolve(`blog`),
       },
     },
-    "gatsby-plugin-mdx",
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.mdx`, `.md`],
+      },
+    },
     "gatsby-transformer-sharp",
+    "gatsby-plugin-mdx-source-name",
+    {
+      resolve: `gatsby-source-git`,
+      options: {
+        name: `blog-content`,
+        remote: `https://github.com/Lokicoule/poc-gatsby-blog-content.git`,
+        branch: `main`,
+        patterns: `blog/**`,
+      },
+    },
   ],
 };
 
